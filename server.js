@@ -7,6 +7,7 @@ const port = 3000;
 const note_routes = require('./routes/note_routes');
 const user_routes = require('./routes/user_routes');
 const task_routes = require('./routes/task_routes');
+const category_routes = require('./routes/category_routes');
 const sharedNote_routes = require('./routes/sharedNote_routes');
 const notification_routes = require('./routes/notification_routes');
 
@@ -18,6 +19,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(note_routes);
 app.use(user_routes);
 app.use(task_routes);
+app.use(category_routes);
 app.use(sharedNote_routes);
 app.use(notification_routes);
 

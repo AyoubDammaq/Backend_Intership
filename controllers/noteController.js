@@ -11,14 +11,14 @@ module.exports.addNote = [
     async (req, res) => {
         const file = req.file;
         const attachedMedia = file ? file.filename : null;
-        const { title, description, category, submitDate, userId, color } = req.body;
+        const { title, description, idCategory, submitDate, userId, color } = req.body;
 
         const formattedDate = moment(submitDate).format('YYYY-MM-DD HH:mm:ss');
 
-        const sql = "INSERT INTO note (title, description, category, attachedMedia,submitDate, userId, color) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        const sql = "INSERT INTO note (title, description, attachedMedia, submitDate, userId, color, idCategory) VALUES (?, ?, ?, ?, ?, ?, ?)";
         
         try {
-            await db.query(sql, [title, description, category, attachedMedia, formattedDate, userId, color]);
+            await db.query(sql, [title, description, attachedMedia, formattedDate, userId, color, idCategory]);
             res.status(200).send("Note added successfully");
             console.log('Note added successfully');
         } catch (error) {

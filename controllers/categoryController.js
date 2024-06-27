@@ -11,7 +11,7 @@ module.exports.createCategory = async (req, res) => {
         console.log("Category added successfully");
         res.status(200).send("Category added successfully");
     } catch (error) {
-        console.log("Error adding category");
+        console.log("Error adding category : " + error);
         res.status(500).send(error);
     }
 };
